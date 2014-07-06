@@ -27,11 +27,11 @@
     {% set entities = entity ~ "s" %}
 {% if 'annotation' == format %}
         return array(
-            '{{ entities }}' => ${{ entities }},
+            '{{ entities }}' => ${{ entities|lower }},
         );
 {% else %}
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
-            '{{ entities }}' => ${{ entities }},
+            '{{ entities }}' => ${{ entities|lower }},
         ));
 {% endif %}
 {% endblock method_return %}
