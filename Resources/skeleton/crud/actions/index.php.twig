@@ -23,9 +23,9 @@
 {% endblock method_body %}
 
 {% block method_return %}
-{% if 'annotation' == format %}
     {# make entity name plural #}
     {% set entities = entity ~ "s" %}
+{% if 'annotation' == format %}
         return array(
             '{{ entities }}' => ${{ entities }},
         );
