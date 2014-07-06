@@ -37,12 +37,12 @@
 {% block method_return %}
 {% if 'annotation' == format %}
         return array(
-            '{{ entity_class }}' => ${{ entity_class|lower }},
+            '{{ entity_class|lower }}' => ${{ entity_class|lower }},
             'form'   => $form->createView(),
         );
 {% else %}
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:new.html.twig', array(
-            '{{ entity_class }}' => ${{ entity_class|lower }},
+            '{{ entity_class|lower }}' => ${{ entity_class|lower }},
             'form'   => $form->createView(),
         ));
 {% endif %}

@@ -32,7 +32,7 @@
 {% block method_return %}
 {% if 'annotation' == format %}
         return array(
-            'entity'      => ${{ entity|lower }},
+            '{{ entity|lower }}'      => ${{ entity|lower }},
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
