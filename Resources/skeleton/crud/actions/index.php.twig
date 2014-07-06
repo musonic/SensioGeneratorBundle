@@ -24,12 +24,14 @@
 
 {% block method_return %}
 {% if 'annotation' == format %}
+    {# make entity name plural #}
+    {% set entities = entity ~ "s" %}
         return array(
-            'entities' => $entities,
+            '{{ entities }}' => ${{ entities }},
         );
 {% else %}
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
-            'entities' => $entities,
+            '{{ entities }}' => ${{ entities }},
         ));
 {% endif %}
 {% endblock method_return %}
