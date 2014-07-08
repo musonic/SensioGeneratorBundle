@@ -174,6 +174,8 @@ class DoctrineCrudGenerator extends Generator
             'route_name_prefix' => $this->routeNamePrefix,
             'bundle'            => $this->bundle->getName(),
             'entity'            => $this->entity,
+            'entity_singularized' => $this->entity_singularized,
+            'entity_pluralized' => $this->entity_pluralized,
             'entity_class'      => $entityClass,
             'namespace'         => $this->bundle->getNamespace(),
             'entity_namespace'  => $entityNamespace,

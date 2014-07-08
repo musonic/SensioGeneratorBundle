@@ -18,17 +18,17 @@
 {% block method_body %}
         $em = $this->getDoctrine()->getManager();
 
-        ${{ entities|lower }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
+        ${{ entity_pluralized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
 {% endblock method_body %}
 
 {% block method_return %}
 {% if 'annotation' == format %}
         return array(
-            '{{ entities|lower }}' => ${{ entities|lower }},
+            '{{ entity_pluralized }}' => ${{ entity_pluralized }},
         );
 {% else %}
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
-            '{{ entities|lower }}' => ${{ entities|lower }},
+            '{{ entity_pluralized }}' => ${{ entity_pluralized }},
         ));
 {% endif %}
 {% endblock method_return %}
