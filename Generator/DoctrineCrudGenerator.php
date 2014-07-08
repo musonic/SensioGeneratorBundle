@@ -14,6 +14,7 @@ namespace Sensio\Bundle\GeneratorBundle\Generator;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
+use Doctrine\Common\Inflector\Inflector;
 
 /**
  * Generates a CRUD controller.
@@ -27,6 +28,8 @@ class DoctrineCrudGenerator extends Generator
     protected $routeNamePrefix;
     protected $bundle;
     protected $entity;
+    protected $entity_singularized;
+    protected $entity_pluralized;
     protected $metadata;
     protected $format;
     protected $actions;
@@ -64,6 +67,8 @@ class DoctrineCrudGenerator extends Generator
         }
 
         $this->entity   = $entity;
+        $this->entity_singularized = lcfirst(Inflector::singularize($entity));
+        $this->entity_pluralized = lcfirst(Inflector::pluralize($entity));
         $this->bundle   = $bundle;
         $this->metadata = $metadata;
         $this->setFormat($format);
