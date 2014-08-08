@@ -28,8 +28,8 @@ class DoctrineCrudGenerator extends Generator
     protected $routeNamePrefix;
     protected $bundle;
     protected $entity;
-    protected $entity_singularized;
-    protected $entity_pluralized;
+    protected $entitySingularized;
+    protected $entityPluralized;
     protected $metadata;
     protected $format;
     protected $actions;
@@ -67,8 +67,8 @@ class DoctrineCrudGenerator extends Generator
         }
 
         $this->entity   = $entity;
-        $this->entity_singularized = lcfirst(Inflector::singularize($entity));
-        $this->entity_pluralized = lcfirst(Inflector::pluralize($entity));
+        $this->entitySingularized = lcfirst(Inflector::singularize($entity));
+        $this->entityPluralized = lcfirst(Inflector::pluralize($entity));
         $this->bundle   = $bundle;
         $this->metadata = $metadata;
         $this->setFormat($format);
@@ -174,8 +174,8 @@ class DoctrineCrudGenerator extends Generator
             'route_name_prefix' => $this->routeNamePrefix,
             'bundle'            => $this->bundle->getName(),
             'entity'            => $this->entity,
-            'entity_singularized' => $this->entity_singularized,
-            'entity_pluralized' => $this->entity_pluralized,
+            'entity_singularized' => $this->entitySingularized,
+            'entity_pluralized' => $this->entityPluralized,
             'entity_class'      => $entityClass,
             'namespace'         => $this->bundle->getNamespace(),
             'entity_namespace'  => $entityNamespace,
